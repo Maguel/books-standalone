@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+:root {
+  --color0: #c3f3ff;
+  --color1: #a3edfc;
+  --color2: #53cbf7;
+  --color3: #2bb3e5;
+  --color4: #1078a6;
+  --color5: #005c88;
+}
+body {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "a";
+  & router-outlet {
+    grid-area: a;
+  }
+  & app-root {
+    grid-area: a;
+    height: 100%;
+    width: 100%;
+  }
+}
