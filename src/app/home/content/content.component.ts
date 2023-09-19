@@ -12,10 +12,15 @@ import { BooksService } from 'src/app/services/books.service';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent {
+  book!: Book;
   constructor(
     private readonly booksService: BooksService
   ) {}
   get books(): Book[] {
     return this.booksService.response;
+  }
+  saveBook(b: Book): void {
+    this.book = b;
+    console.log(this.book);
   }
 }
