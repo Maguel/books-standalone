@@ -35,6 +35,7 @@ header {
     animation: initAppear 1s forwards ease;
     cursor: default;
     & .selected-option {
+      position: relative;
       display: flex;
       justify-content: space-between;
       padding-left: .4rem;
@@ -43,8 +44,8 @@ header {
       padding-bottom: .2rem;
       border-radius: 1rem;
       background-color: var(--color1);
-      top: 50%;
       transform: translateY(-50%);
+      z-index: 3;
       transition: transform .3s ease;
       & span {
         font-weight: bold;
@@ -60,6 +61,7 @@ header {
       padding-right: .4rem;
       top: .75rem;
       background-color: var(--color1);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       & .option {
         width: 100%;

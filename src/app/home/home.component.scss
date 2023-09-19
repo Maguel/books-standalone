@@ -5,4 +5,8 @@ app-content {
   grid-auto-rows: 20rem;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   overflow-y: auto;
+  z-index: 0;
+}
+app-header, app-footer {
+  z-index: 2;
 }

@@ -51,6 +51,7 @@ footer {
         transform: translateY(-99%);
         overflow: hidden;
         background-color: var(--color1);
+        box-shadow: -4px 2px 12px rgba(0, 0, 0, 0.1), -8px 4px 20px rgba(0, 0, 0, 0.1);
         & .option {
           width: 100%;
           transition: padding-left .3s ease, font-size .3s ease;
