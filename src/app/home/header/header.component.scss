@@ -54,22 +54,23 @@ header {
     }
     & .options {
       position: absolute;
-      gap: .3rem;
+      display: grid;
       width: 100%;
-      padding-top: .3rem;
       padding-left: .4rem;
       padding-right: .4rem;
-      top: .75rem;
       background-color: var(--color1);
+      top: .7rem;
       box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       & .option {
+        display: grid;
+        align-content: center;
         width: 100%;
         transition: padding-left .3s ease, font-size .3s ease;
       }
       & .option:hover {
         padding-left: .3rem;
-        font-size: 1.02rem;
+        //font-size: 1.02rem;
       }
     }
   }
@@ -90,7 +91,7 @@ header {
   animation: toggleDown .5s forwards ease;
 }
 .show {
-  animation: toggleUp .5s forwards ease;
+  animation: toggleUp .8s forwards ease;
 }
 @keyframes borderRadiusIn {
   from {
@@ -108,24 +109,19 @@ header {
 }
 @keyframes toggleUp {
   from {
-    display: none;
     height: 0;
+  } 10% {
+    height: 2rem;
   } to {
-    display: grid;
-    height: 150%;
+    height: 9rem;
   }
 }
 @keyframes toggleDown {
   from {
-    display: grid;
-    height: 150%;
+    height: 9rem;
   } 70% {
     opacity: 90%;
-  } 99% {
-    display: none;
-    height: 1%;
-  } 100% {
-    display: none;
+  }100% {
     opacity: 0%;
     height: 0;
   }

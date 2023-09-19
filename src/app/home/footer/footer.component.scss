@@ -48,6 +48,7 @@ footer {
         font-size: 1.1rem;
         gap: .3rem;
         padding-left: .3rem;
+        padding-bottom: .3rem;
         transform: translateY(-99%);
         overflow: hidden;
         background-color: var(--color1);
@@ -58,7 +59,7 @@ footer {
         }
         & .option:hover {
           padding-left: .3rem;
-          font-size: 1.02rem;
+          //font-size: 1.02rem;
         }
       }
     }
