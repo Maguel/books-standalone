@@ -1,1 +1,12 @@
-<p>header works!</p>
+<header>
+  <h3>Books Reviews</h3>
+  <input (keyup.enter)="search()" [(ngModel)]="query" type="text" name="searcher" id="searcher" placeholder="Search">
+  <div class="custom-select">
+    <div class="selected-option" (click)="showOptions()" [class.borderIn]="border" [class.borderOut]="!border">{{searchBy}}<span>&nbsp;&gt;</span></div>
+    <div class="options" [class.show]="show" [class.hide]="!show">
+      <ng-container *ngFor="let item of list">
+        <div class="option" *ngIf="item!==searchBy" (click)="showOptions()" (click)="setSearchBy(item)">{{item}}</div>
+      </ng-container>
+    </div>
+  </div>
+</header>

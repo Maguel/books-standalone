@@ -6,7 +6,7 @@
   font-family: 'Times New Roman', Times, serif;
 }
 :root {
-  --color0: #c3f3ff;
+  --color0: #dcf5fc;
   --color1: #a3edfc;
   --color2: #53cbf7;
   --color3: #2bb3e5;
@@ -14,6 +14,7 @@
   --color5: #005c88;
 }
 body {
+  position: absolute;
   display: grid;
   height: 100vh;
   width: 100vw;
@@ -24,8 +25,17 @@ body {
     grid-area: a;
   }
   & app-root {
+    position: relative;
     grid-area: a;
     height: 100%;
     width: 100%;
+    & app-home {
+      position: absolute;
+      display: grid;
+      width: 100%;
+      height: 100%;
+      grid-template-columns: 1fr;
+      grid-template-rows: 10vh 1fr 5vh;
+    }
   }
 }

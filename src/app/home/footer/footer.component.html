@@ -1,1 +1,14 @@
-<p>footer works!</p>
+<footer>
+  <p>App designed and developed by:&nbsp;<span>Miguel A. Santillan Alonso</span></p>
+  <div class="language">
+    <p>Language:&nbsp;&nbsp;</p>
+    <div class="custom-select">
+      <div class="options" [class.show]="show" [class.hide]="!show">
+        <ng-container *ngFor="let l of lang">
+          <div class="option" *ngIf="l!==langSelect" (click)="showOptions()" (click)="setLanguage(l)">{{ l }}</div>
+        </ng-container>
+      </div>
+      <div class="selected-option" (click)="showOptions()" [class.borderIn]="border" [class.borderOut]="!border">{{ langSelect }}<span>&nbsp;&gt;</span></div>
+    </div>
+  </div>
+</footer>

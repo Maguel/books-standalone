@@ -15,10 +15,5 @@ import { HeaderComponent } from './header/header.component';
   providers: [BooksService]
 })
 export class HomeComponent {
-  constructor(
-    readonly booksService: BooksService
-  ){
-    booksService.search('Java',0);
-    console.log(booksService.response);
-  }
+  constructor() {}
 }

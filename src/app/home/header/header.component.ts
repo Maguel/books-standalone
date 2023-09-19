@@ -1,13 +1,44 @@
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BooksService } from 'src/app/services/books.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, NgFor, NgIf],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  searchBy: string = 'by title';
+  query: string = '';
+  by: { [key: string]: number } = {'by title': 1, 'by author':2, 'by publisher': 3, 'by subject': 4, 'by ISBN': 5};
+  list: string[] = ['by title', 'by author', 'by publisher', 'by subject', 'by ISBN'];
+  show: boolean = false;
+  border: boolean = true;
 
+  constructor(
+    private readonly booksService: BooksService
+  ) {}
+
+  setSearchBy(s: string): void {
+    this.searchBy = s;
+  }
+  showOptions(): void {
+    if(!this.show) {
+      this.border = !this.border;
+      setTimeout(() => {
+        this.show = !this.show;
+      },200);
+    } else {
+      this.show = !this.show;
+      setTimeout(() => {
+        this.border = !this.border;
+      },300);
+    }
+  } 
+  search(): void {
+    this.booksService.search(this.query, this.by[this.searchBy]);
+  }
 }

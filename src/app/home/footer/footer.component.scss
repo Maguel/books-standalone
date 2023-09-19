@@ -1,0 +1,145 @@
+footer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  padding-left: 1rem;
+  justify-content: space-between;
+  color: var(--color0);
+  background-color: var(--color5);
+  & p {
+    user-select: none;
+    & span {
+      user-select: text;
+    }
+    & span::selection {
+      background-color: white;
+      color: var(--color5);
+    }
+  }
+  & .language {
+    display: flex;
+    & .custom-select {
+      position: relative;
+      margin-right: 2vw;
+      color: var(--color5);
+      user-select: none;
+      animation: initAppear 1s forwards ease;
+      & .selected-option {
+        position: relative;
+        display: flex;
+        z-index: 2;
+        justify-content: space-between;
+        width: 3.5rem;
+        font-size: 1.1rem;
+        padding-left: .3rem;
+        padding-right: .3rem;
+        background-color: var(--color1);
+        transition: transform .3s ease;
+        & span {
+          font-weight: bold;
+          transition: transform 0.7s ease;
+        }
+      }
+      & .options {
+        display: grid;
+        position: absolute;
+        width: 3.5rem;
+        font-size: 1.1rem;
+        gap: .3rem;
+        padding-left: .3rem;
+        transform: translateY(-99%);
+        overflow: hidden;
+        background-color: var(--color1);
+        & .option {
+          width: 100%;
+          transition: padding-left .3s ease, font-size .3s ease;
+        }
+        & .option:hover {
+          padding-left: .3rem;
+          font-size: 1.02rem;
+        }
+      }
+    }
+  }
+}
+.borderIn {
+  animation: borderRadiusIn 0.3s forwards ease;
+  & span {
+    transform: rotate(-90deg) scaleY(1.4) scaleX(.7);
+  }
+}
+.borderOut {
+  animation: borderRadiusOut 0.3s forwards ease;
+  & span {
+    transform: rotate(90deg) scaleY(1.4) scaleX(.7);
+  }
+}
+.hide {
+  animation: toggleDown .5s forwards ease;
+  z-index: 0;
+}
+.show {
+  animation: toggleUp .5s forwards ease;
+  z-index: 0;
+}
+@keyframes borderRadiusIn {
+  from {
+    border-radius: 0;
+  } to {
+    border-radius: 1rem;
+  }
+}
+@keyframes borderRadiusOut {
+  from {
+    border-radius: 1rem;
+  } to {
+    border-radius: 0;
+  }
+}
+@keyframes toggleUp {
+  from {
+    height: 0;
+  } to {
+    height: 8.3rem;
+  }
+}
+@keyframes toggleDown {
+  from {
+    height: 8.3rem;
+    opacity: 100%;
+  } 70% {
+    opacity: 90%;
+  } to {
+    height: 0;
+    opacity: 0;
+  }
+}
+@keyframes initAppear {
+  0% {
+    opacity: 0;
+  } 40% {
+    opacity: 0;
+  } 100% {
+    opacity: 100%;
+  }
+}
+@media(max-width: 600px) {
+  footer {
+    & p {
+      font-size: .7rem;
+    }
+  }
+  .language {
+    & p {
+      display: none;
+    }
+  }
+}
+@media(max-width: 300px) {
+  footer {
+    & p {
+      font-size: .45rem;
+    }
+  }
+}

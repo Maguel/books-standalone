@@ -1,0 +1,153 @@
+header {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 17vh;
+  background-color: var(--color5);
+  & h3 {
+    user-select: none;
+    font-size: 3vh;
+    padding-left: 1rem;
+    align-self: center;
+    color: var(--color0);
+  }
+  & input {
+    width: 100%;
+    align-self: center;
+    border-radius: 1rem;
+    height: 1.5rem;
+    border: none;
+    outline: none;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    transition: height 0.3s ease, border-radius 0.3s ease;
+  }
+  & input:focus {
+    height: 1.8rem;
+    border-radius: 0;
+  }
+  & .custom-select {
+    position: relative;
+    margin-left: .5rem;
+    margin-right: .5rem;
+    user-select: none;
+    top: 50%;
+    animation: initAppear 1s forwards ease;
+    cursor: default;
+    & .selected-option {
+      display: flex;
+      justify-content: space-between;
+      padding-left: .4rem;
+      padding-right: .4rem;
+      padding-top: .2rem;
+      padding-bottom: .2rem;
+      border-radius: 1rem;
+      background-color: var(--color1);
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform .3s ease;
+      & span {
+        font-weight: bold;
+        transition: transform 0.7s ease;
+      }
+    }
+    & .options {
+      position: absolute;
+      gap: .3rem;
+      width: 100%;
+      padding-top: .3rem;
+      padding-left: .4rem;
+      padding-right: .4rem;
+      top: .75rem;
+      background-color: var(--color1);
+      overflow: hidden;
+      & .option {
+        width: 100%;
+        transition: padding-left .3s ease, font-size .3s ease;
+      }
+      & .option:hover {
+        padding-left: .3rem;
+        font-size: 1.02rem;
+      }
+    }
+  }
+}
+.borderIn {
+  animation: borderRadiusIn 0.3s forwards ease;
+  & span {
+    transform: rotate(90deg) scaleY(1.4) scaleX(.7);
+  }
+}
+.borderOut {
+  animation: borderRadiusOut 0.3s forwards ease;
+  & span {
+    transform: rotate(-90deg) scaleY(1.4) scaleX(.7);
+  }
+}
+.hide {
+  animation: toggleDown .5s forwards ease;
+}
+.show {
+  animation: toggleUp .5s forwards ease;
+}
+@keyframes borderRadiusIn {
+  from {
+    border-radius: 0;
+  } to {
+    border-radius: 1rem;
+  }
+}
+@keyframes borderRadiusOut {
+  from {
+    border-radius: 1rem;
+  } to {
+    border-radius: 0;
+  }
+}
+@keyframes toggleUp {
+  from {
+    display: none;
+    height: 0;
+  } to {
+    display: grid;
+    height: 150%;
+  }
+}
+@keyframes toggleDown {
+  from {
+    display: grid;
+    height: 150%;
+  } 70% {
+    opacity: 90%;
+  } 99% {
+    display: none;
+    height: 1%;
+  } 100% {
+    display: none;
+    opacity: 0%;
+    height: 0;
+  }
+}
+@keyframes initAppear {
+  0% {
+    opacity: 0;
+  } 40% {
+    opacity: 0;
+  } 100% {
+    opacity: 100%;
+  }
+}
+@media(max-width: 600px) {
+  header {
+    grid-template-columns: 1fr 1fr 17vh;
+    & h3 {
+      font-size: 2.5vh;
+    }
+    & .custom-select {
+      font-size: .9rem;
+      & .options {
+        top: .7rem;
+      }
+    } 
+  }
+}
