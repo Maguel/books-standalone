@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Book } from 'src/app/interfaces/books-response.interface';
 import { BooksService } from 'src/app/services/books.service';
 
@@ -8,6 +8,7 @@ import { BooksService } from 'src/app/services/books.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './content.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent {
