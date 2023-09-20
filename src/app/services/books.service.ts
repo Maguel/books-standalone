@@ -18,7 +18,7 @@ export class BooksService {
   private _maxResults: number = 10;
   private _totalResults: number = 0;
   private _page: number = 0;
-  private _configs: { [key: string]: string } = {'_lang':'en', '_lastSearch':''};
+  private _configs: { [key: string]: string } = {'_lang' : 'en', '_lastSearch' : '','_totalResults': ''};
   private _lang: string;
   private _lastSearch: string;
 
@@ -45,6 +45,7 @@ export class BooksService {
     }
     this._lang = this._configs['_lang'];
     this._lastSearch = this._configs['_lastSearch'];
+    this._totalResults = Number(this._configs['_totalResults']);
   }
   get response(): Book[] {
     return this._response;
@@ -57,6 +58,9 @@ export class BooksService {
   }
   get lastSearch(): string {
     return this._lastSearch;
+  }
+  get totalResults(): number {
+    return this._totalResults;
   }
   search(query: string, by: number): void {
     this._query = query.trim().toLowerCase();
@@ -77,6 +81,7 @@ export class BooksService {
     .subscribe( (response) => {
       this._response = response.items;
       this._totalResults = response.totalItems;
+      this._configs['_totalResults'] = String(response.totalItems);
       console.log(response);
       localStorage.setItem('lastRequest', JSON.stringify(this._response));
       localStorage.setItem('booksReviewsConfig', JSON.stringify(this._configs));
