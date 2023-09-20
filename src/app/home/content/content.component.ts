@@ -1,26 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Book } from 'src/app/interfaces/books-response.interface';
-import { BooksService } from 'src/app/services/books.service';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-content',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './content.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent {
-  book!: Book;
-  constructor(
-    private readonly booksService: BooksService
-  ) {}
-  get books(): Book[] {
-    return this.booksService.response;
-  }
-  saveBook(b: Book): void {
-    this.book = b;
-    console.log(this.book);
-  }
+  
 }

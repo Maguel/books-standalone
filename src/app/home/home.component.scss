@@ -1,9 +1,9 @@
 app-content {
   position: relative;
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   height: 100%;
-  grid-auto-rows: 20rem;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   overflow-y: auto;
   z-index: 0;
 }

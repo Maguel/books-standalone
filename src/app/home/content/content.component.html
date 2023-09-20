@@ -1,7 +1,1 @@
-<div *ngFor="let book of books" (click)="saveBook(book)">
-  <img *ngIf="book.volumeInfo?.imageLinks?.thumbnail; else noImage" src="{{book.volumeInfo.imageLinks?.thumbnail}}" alt="">
-  <ng-template #noImage>
-    <h2>No img.</h2>
-  </ng-template>
-  <h4>{{book.volumeInfo.title}}</h4>
-</div>
+<router-outlet></router-outlet>

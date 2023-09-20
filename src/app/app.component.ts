@@ -11,5 +11,5 @@ import { HomeComponent } from './home/home.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-standalone';
+  
 }
