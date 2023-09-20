@@ -1,9 +1,9 @@
-<div *ngIf="!books">
+<div *ngIf="books.length===0">
   Start searching a book
 </div>
 <div class="last-search">
   <h4>Last Search: {{lastSearch | titlecase}}</h4>
-  <div class="books">
+  <div appXScroll class="books">
     <div class="book" *ngFor="let book of books" (click)="saveBook(book)">
       <div class="div-img"><img src="{{book.volumeInfo.imageLinks?.thumbnail}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
       <div class="div-info">
@@ -16,7 +16,7 @@
 </div>
 <div class="view-history">
   <h4>View history</h4>
-  <div class="books">
+  <div appXScroll class="books">
     <div class="book" *ngFor="let book of booksViewed" (click)="saveBook(book)">
       <div class="div-img"><img src="{{book.volumeInfo.imageLinks?.thumbnail}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
       <div class="div-info">

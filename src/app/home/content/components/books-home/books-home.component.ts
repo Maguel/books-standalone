@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Book } from 'src/app/interfaces/books-response.interface';
 import { BooksService } from 'src/app/services/books.service';
+import { XScrollDirective } from './x-scroll.directive';
 
 @Component({
   selector: 'app-books-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, XScrollDirective],
   templateUrl: './books-home.component.html',
   styleUrls: ['./books-home.component.scss']
 })
