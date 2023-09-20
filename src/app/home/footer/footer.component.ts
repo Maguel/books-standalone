@@ -11,13 +11,15 @@ import { BooksService } from 'src/app/services/books.service';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  langSelect: string = 'en';
+  langSelect: string = '';
   lang: string[] = ['any', 'pt', 'it', 'fr', 'es', 'en'];
   show: boolean = false;
   border: boolean = true;
   constructor(
     private readonly booksService: BooksService
-  ) {}
+  ) {
+    this.langSelect = booksService.language;
+  }
   showOptions(): void {
     if(!this.show) {
       this.border = !this.border;
