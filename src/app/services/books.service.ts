@@ -21,6 +21,7 @@ export class BooksService {
   private _configs: { [key: string]: string } = {'_lang' : 'en', '_lastSearch' : '','_totalResults': '-1', '_by': '1'};
   private _lang: string;
   private _lastSearch: string;
+  private _bookSelected?: Book;
 
   constructor(
     readonly http:HttpClient
@@ -66,6 +67,9 @@ export class BooksService {
   }
   get index(): number {
     return this._index;
+  }
+  get bookSelected(): Book {
+    return this._bookSelected!;
   }
   search(query: string, by: number): void {
     this._query = query.trim().toLowerCase();
@@ -138,6 +142,7 @@ export class BooksService {
     localStorage.setItem('booksReviewsConfig', JSON.stringify(this._configs));
   }
   saveBookViewed(b: Book): void {
+    this._bookSelected = b;
     this._viewsHistory = this._viewsHistory.filter(book => book.id !== b.id);
     this._viewsHistory.unshift(b);
     if (this._viewsHistory.length > 15) {
