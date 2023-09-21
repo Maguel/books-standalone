@@ -1,6 +1,7 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class HeaderComponent {
   border: boolean = true;
 
   constructor(
-    private readonly booksService: BooksService
+    private readonly booksService: BooksService,
+    private router: Router
   ) {}
 
   setSearchBy(s: string): void {
@@ -39,6 +41,9 @@ export class HeaderComponent {
     }
   } 
   search(): void {
-    this.booksService.search(this.query, this.by[this.searchBy]);
+    this.router.navigate(['/home/search'])
+    setTimeout(() => {
+      this.booksService.search(this.query, this.by[this.searchBy]);
+    },300);
   }
 }
