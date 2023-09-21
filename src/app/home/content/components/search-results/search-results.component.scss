@@ -1,0 +1,88 @@
+
+
+.loadingio-spinner-dual-ring {
+  position: absolute;
+  width: 50vh;
+  height: 50Vh;
+  display: flex;
+  overflow: hidden;
+  justify-self: center;
+  align-self: center;
+  background: #ffffff;
+  animation: disappearAnim .3s 1s ease forwards;
+}
+.div-no-results {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  justify-self: center;
+  align-self: center;
+  animation: showAnim .5s 1.3s ease forwards;
+}
+.div-all-results {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  justify-self: center;
+  align-self: center;
+  animation: showAnim .5s 1.3s ease forwards;
+}
+
+
+
+
+
+
+.ldio > div {
+  position: relative;
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  border: 16px solid #000;
+  border-color: #53cbf7 transparent #53cbf7 transparent;
+  animation: ldio 2s ease infinite;
+}
+
+.ldio {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; 
+}
+.ldio div { 
+  position: relative;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  box-sizing: content-box; 
+}
+@keyframes ldio {
+  0% { transform: rotate(0) }
+  100% { transform: rotate(360deg) }
+}
+@keyframes disappearAnim {
+  from {
+    opacity: 1;
+    visibility: visible;
+  } to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes showAnim {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  } 
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}

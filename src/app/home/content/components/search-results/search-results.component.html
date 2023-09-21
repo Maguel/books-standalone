@@ -1,1 +1,11 @@
-<p>search-results works!</p>
+<div class="loadingio-spinner-dual-ring">
+  <div class="ldio">
+    <div></div>
+  </div>
+</div>
+<div *ngIf="totalResults===0" class="div-no-results">
+  <img src="https://media.giphy.com/media/OSuaE6AknuRc7syZXp/giphy.gif" alt=""/>
+</div>
+<div *ngIf="totalResults!==0" class="div-all-results">
+  Si hay resultados
+</div>

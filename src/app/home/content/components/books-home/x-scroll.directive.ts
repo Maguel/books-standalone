@@ -17,7 +17,7 @@ export class XScrollDirective {
     event.stopPropagation();
     const start = this.el.nativeElement.scrollLeft;
     const change = 0 - start;
-    const duration = 500; // Duración en milisegundos
+    const duration = 1000; // Duración en milisegundos
     let startTime: number | null = null;
 
     const animateScroll = (currentTime: number) => {
