@@ -69,7 +69,9 @@ export class BooksService {
   }
   search(query: string, by: number): void {
     this._query = query.trim().toLowerCase();
-    this._lastSearch = this._query;
+    setTimeout(() => {
+      this._lastSearch = this._query;
+    },500);
     this._configs['_lastSearch'] = this._query;
     this._by = by;
     this._configs['_by'] = String(this._by);

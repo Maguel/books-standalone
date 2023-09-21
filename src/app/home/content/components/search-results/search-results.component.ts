@@ -12,7 +12,7 @@ import { BooksService } from 'src/app/services/books.service';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent {
-  book!: Book;
+  book!: Book; 
   constructor(
     private readonly booksService: BooksService,
     private router: Router
@@ -25,6 +25,9 @@ export class SearchResultsComponent {
   }
   get index(): number {
     return this.booksService.index;
+  }
+  get lastSearch(): string {
+    return this.booksService.lastSearch;
   }
   httpsForm(s?: string): string {
     if(s){

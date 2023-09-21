@@ -4,8 +4,17 @@
   </div>
 </div>
 <div *ngIf="totalResults===0" class="div-no-results">
-  <img src="https://media.giphy.com/media/OSuaE6AknuRc7syZXp/giphy.gif" alt=""/>
+  <h1>There's no results for: {{lastSearch}}</h1>
+  <img src="https://media.giphy.com/media/giXLnhxp60zEEIkq8K/giphy.gif" alt=""/>
 </div>
 <div *ngIf="totalResults!==0" class="div-all-results">
-  Si hay resultados
+  <div class=""></div>
+  <div class="book" *ngFor="let book of books" (click)="viewBook(book)">
+    <div class="div-img"><img src="{{httpsForm(book.volumeInfo.imageLinks?.thumbnail)}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
+    <h5 style="grid-area: t1;">{{book.volumeInfo.title}}</h5>
+    <h6 style="grid-area: t2;">{{book.volumeInfo.publishedDate}}</h6>
+    <h6 style="grid-area: t3;">{{book.volumeInfo.authors}}</h6>
+    <h6 style="grid-area: t4;">{{book.volumeInfo.publisher}}</h6>
+  </div>
+  <div class=""></div>
 </div>
