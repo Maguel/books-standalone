@@ -38,44 +38,92 @@
     object-fit: contain;
   }
 }
-.div-all-results {
+.div-all-results-view {
+  position: absolute;
   display: grid;
+  grid-template-rows: 5% 1fr 7%;
   height: 100%;
   width: 100%;
   opacity: 0;
-  gap: 1rem;
   visibility: hidden;
+  animation: showAnim .3s .9s ease forwards;
+}
+.div-config {
+  display: flex;
+  padding-left: 1rem;
+  color: var(--color0);
+  background-color: var(--color5);
+}
+.paginator {
+  display: flex;
+  color: var(--color0);
+  background-color: var(--color5);
+}
+.div-all-results {
+  position: relative;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  gap: 1rem;
   grid-auto-rows: 13rem;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   padding: 1rem;
-  animation: showAnim .3s .9s ease forwards;
+  overflow-y: auto;
   & .book {
     display: grid;
     grid-template-columns: 8rem 1fr;
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: 30% repeat(3, auto);
     grid-template-areas: 
       "i t1"
       "i t2"
       "i t3"
       "i t4";
-      background-color: var(--color0);
-      padding: .5rem;
+    background-color: var(--color0);
+    animation: appearAnim 0.5s ease;
+    border-radius: .8rem;
+    & .back-img {
+      display: grid;
+      will-change: filter;
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+      grid-column: 1 / 3;
+      grid-row: 1 / 5;
+      background-size: 150% 150%;
+      border-radius: .8rem;
+      background-position: center;
+      transition: opacity 0.3s ease; 
+    }
     & .div-img {
       position: relative;
       display: grid;
       grid-area: i;
       width: 8rem;
       height: 100%;
+      padding: .2rem;
       & img {
         position: absolute;
-        justify-self: start;
+        justify-self: center;
         align-self: center;
-        width: 95%;
+        width: 90%;
         max-width: 100%;
         height: auto;
         max-height: 100%;
         object-fit: contain;
       }
+    }
+    & .back-img::before {
+      display: grid;
+      will-change: filter;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: .8rem;
+      backdrop-filter: blur(30px ); 
+      background-color: rgba(255, 255, 255, 0.493); 
     }
     & h5 {
       display: -webkit-box;           
@@ -83,17 +131,23 @@
       -webkit-line-clamp: 3;          
       overflow: hidden;               
       text-overflow: ellipsis;
-      height: 2.2rem;          
-      max-height: 2.5em;
-      max-width: 9rem;
-      padding-left: .3rem; 
+      height: 100%;
+      padding-left: .3rem;
+      padding-top: 1rem;
+      z-index: 2; 
     }
     & h6 {
       padding-left: .3rem;
+      z-index: 2;
     }
   }
+  & .book:hover .back-img {
+    opacity: 100%;
+  }
+  .book:hover {
+    box-shadow: -2px 2px 10px #00000025, 2px 2px 10px #00000025, 0px -2px 10px #00000025;
+  } 
 }
-
 
 
 

@@ -69,9 +69,6 @@ export class BooksService {
   }
   search(query: string, by: number): void {
     this._query = query.trim().toLowerCase();
-    setTimeout(() => {
-      this._lastSearch = this._query;
-    },500);
     this._configs['_lastSearch'] = this._query;
     this._by = by;
     this._configs['_by'] = String(this._by);
@@ -90,6 +87,7 @@ export class BooksService {
       this._response = response.items;
       this._totalResults = response.totalItems;
       this._configs['_totalResults'] = String(response.totalItems);
+      this._lastSearch = this._query;
       console.log(response);
       localStorage.setItem('lastRequest', JSON.stringify(this._response));
       localStorage.setItem('booksReviewsConfig', JSON.stringify(this._configs));
