@@ -44,5 +44,12 @@ app-books-home {
   display: grid;
   width: 100%;
   grid-template-rows: 50% 50%;
-  //grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  animation: appearAnim 0.5s ease;
+}
+@keyframes appearAnim {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 100%;
+  }
 }

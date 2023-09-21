@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Book } from 'src/app/interfaces/books-response.interface';
 import { BooksService } from 'src/app/services/books.service';
 import { XScrollDirective } from './x-scroll.directive';
@@ -14,7 +15,8 @@ import { XScrollDirective } from './x-scroll.directive';
 export class BooksHomeComponent {
   book!: Book;
   constructor(
-    private readonly booksService: BooksService
+    private readonly booksService: BooksService,
+    private router: Router
   ) {}
   get books(): Book[] {
     return this.booksService.response;
@@ -28,7 +30,11 @@ export class BooksHomeComponent {
   get totalResults(): number {
     return this.booksService.totalResults;
   }
+  get index(): number {
+    return this.booksService.index;
+  }
   viewBook(b: Book): void {
+    this.router.navigate(['home/book']);
     this.book = b;
     this.booksService.saveBookViewed(b);
   }
@@ -38,5 +44,11 @@ export class BooksHomeComponent {
     } else {
       return ''
     }
+  }
+  next():void {
+    this.booksService.nextPage();
+  }
+  previus():void {
+    this.booksService.previusPage();
   }
 }

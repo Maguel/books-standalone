@@ -3,11 +3,13 @@
   <img src="https://media.giphy.com/media/IBFvMzgB6fFmysKsmP/giphy.gif" alt="">
 </div>
 <div class="div-no-results" *ngIf="totalResults===0">
-  There no results for: {{lastSearch | titlecase}}.
+  <h4>There's no results for last search: {{lastSearch | titlecase}}.</h4>
+  <img src="https://media.giphy.com/media/jU9OCvBiO1besabUKU/giphy.gif" alt="">
 </div>
 <div *ngIf="totalResults!==-1 && totalResults !== 0" class="last-search">
   <h4>Last Search: {{lastSearch | titlecase}}</h4>
   <div appXScroll class="books">
+    <button class="prev" *ngIf="index!==0" (click)="previus()">«</button>
     <div class="book" *ngFor="let book of books" (click)="viewBook(book)">
       <div class="back-img" [style.background-image]="'url(' + httpsForm(book.volumeInfo.imageLinks?.thumbnail) + ')'"></div>
       <div class="div-img"><img src="{{httpsForm(book.volumeInfo.imageLinks?.thumbnail)}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
@@ -16,7 +18,7 @@
         <h6>{{book.volumeInfo.publishedDate}}</h6>
       </div>
     </div>
-    <button *ngIf="totalResults > 10">siguiente</button>
+    <button class="next" *ngIf="totalResults > 10" (click)="next()">»</button>
   </div>
 </div>
 <div *ngIf="totalResults!==-1" class="view-history">
