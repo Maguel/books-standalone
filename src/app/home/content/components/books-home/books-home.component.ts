@@ -32,4 +32,11 @@ export class BooksHomeComponent {
     this.book = b;
     this.booksService.saveBookViewed(b);
   }
+  httpsForm(s?: string): string {
+    if(s){
+      return 'https'+s.slice(4,s.length);
+    } else {
+      return ''
+    }
+  }
 }
