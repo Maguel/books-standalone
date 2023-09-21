@@ -5,8 +5,8 @@
   <h4>Last Search: {{lastSearch | titlecase}}</h4>
   <div appXScroll class="books">
     <div class="book" *ngFor="let book of books" (click)="saveBook(book)">
-      <div class="back-img" style="background-image: url({{book.volumeInfo.imageLinks?.thumbnail}});"></div>
-      <div class="div-img"><img src="{{book.volumeInfo.imageLinks?.thumbnail}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
+      <div class="back-img" [style.background-image]="'url(https{{book.volumeInfo.imageLinks?.thumbnail | slice:4:book.volumeInfo.imageLinks?.thumbnail?.length}})'"></div>
+      <div class="div-img"><img src="https{{book.volumeInfo.imageLinks?.thumbnail | slice:4:book.volumeInfo.imageLinks?.thumbnail?.length}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
       <div class="div-info">
         <h4>{{book.volumeInfo.title}}</h4>
         <h6>{{book.volumeInfo.publishedDate}}</h6>
@@ -19,8 +19,8 @@
   <h4>View history</h4>
   <div appXScroll class="books">
     <div class="book" *ngFor="let book of booksViewed" (click)="saveBook(book)">
-      <div class="back-img" style="background-image: url({{book.volumeInfo.imageLinks?.thumbnail}});"></div>
-      <div class="div-img"><img src="{{book.volumeInfo.imageLinks?.thumbnail}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
+      <div class="back-img" [style.background-image]="'url(https{{book.volumeInfo.imageLinks?.thumbnail | slice:4:book.volumeInfo.imageLinks?.thumbnail?.length}})'"></div>
+      <div class="div-img"><img src="https{{book.volumeInfo.imageLinks?.thumbnail | slice:4:book.volumeInfo.imageLinks?.thumbnail?.length}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
       <div class="div-info">
         <h4>{{book.volumeInfo.title}}</h4>
         <h6>{{book.volumeInfo.publishedDate}}</h6>
@@ -28,11 +28,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div *ngFor="let book of books" (click)="saveBook(book)">
-  <img *ngIf="book.volumeInfo?.imageLinks?.thumbnail; else noImage" src="{{book.volumeInfo.imageLinks?.thumbnail}}" alt="">
-  <ng-template #noImage>
-    <h2>No img.</h2>
-  </ng-template>
-  <h4>{{book.volumeInfo.title}}</h4>
-</div> -->
