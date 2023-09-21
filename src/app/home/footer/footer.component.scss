@@ -43,6 +43,7 @@ footer {
       }
       & .options {
         display: grid;
+        will-change: height;
         position: absolute;
         width: 3.5rem;
         font-size: 1.1rem;

@@ -15,7 +15,7 @@ export class BooksService {
   private _query: string = '';
   private _by: number = 0;
   private _index = 0;
-  private _maxResults: number = 20;
+  private _maxResults: number = 15;
   private _totalResults: number = 0;
   private _page: number = 0;
   private _configs: { [key: string]: string } = {'_lang' : 'en', '_lastSearch' : '','_totalResults': ''};
@@ -130,8 +130,8 @@ export class BooksService {
   saveBookViewed(b: Book): void {
     this._viewsHistory = this._viewsHistory.filter(book => book.id !== b.id);
     this._viewsHistory.unshift(b);
-    if (this._viewsHistory.length > 20) {
-      this._viewsHistory.splice(20);
+    if (this._viewsHistory.length > 15) {
+      this._viewsHistory.splice(15);
     }
     localStorage.setItem('viewHistory', JSON.stringify(this._viewsHistory));
   }

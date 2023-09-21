@@ -1,7 +1,7 @@
 .last-search {
   position: absolute;
   width: 100%;
-  height: 50%;
+  height: 48%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 15% 1fr;
@@ -9,7 +9,7 @@
 }
 .view-history {
   position: absolute;
-  top: 50%;
+  top: 48%;
   width: 100%;
   height: 50%;
   display: grid;
@@ -28,31 +28,72 @@ h4 {
   display: flex;
   overflow-x: auto;
   padding-bottom: .3rem;
+  padding-top: .3rem;
 }
 .book {
   position: relative;
   display: grid;
+  cursor: pointer;
   height: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: 75% 25%;
   background-color: var(--color0);
   border-radius: .8rem;
-  transition: background-color .3s ease;
+  transition: box-shadow .3s ease;
 }
-.book:hover {
+.books::-webkit-scrollbar {
+  height: 5px;
+  border-radius: 10px;
+}
+.books::-webkit-scrollbar-thumb {
+  border-radius: 10px;
   background-color: var(--color2);
 }
+.book:hover {
+  box-shadow: -2px 2px 10px #00000025, 2px 2px 10px #00000025, 0px -2px 10px #00000025;
+}
+.back-img {
+  display: grid;
+  will-change: filter;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  grid-column: 1;
+  grid-row: 1 / 3;
+  background-size: cover;
+  border-radius: .8rem;
+  background-position: center;
+  transition: opacity 0.3s ease; 
+}
+.book:hover .back-img {
+  opacity: 100%;
+}
+.back-img::before {
+  display: grid;
+  will-change: filter;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: .8rem;
+  backdrop-filter: blur(20px ); 
+  background-color: rgba(255, 255, 255, 0.493); 
+}
 .book:hover .div-img img {
-  box-shadow: 0 10px 20px #00000033;
+  box-shadow: 0 5px 20px #00000033;
 }
 .div-img {
   position: relative;
   display: grid;
+  grid-column: 1;
+  grid-row: 1;
   width: 10rem;
   height: 100%;
   padding: .4rem;
   & img {
-    position: relative;
+    position: absolute;
     justify-self: center;
     align-self: center;
     width: auto;
@@ -60,11 +101,14 @@ h4 {
     height: auto;
     max-height: 100%;
     object-fit: contain;
+    transition: box-shadow .4s ease;
   }
 }
 .div-info {
   position: relative;
   display: grid;
+  grid-column: 1;
+  grid-row: 2;
   height: 100%;
   padding-left: .5rem;
   padding-right: .5rem;

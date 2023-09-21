@@ -54,6 +54,7 @@ header {
     }
     & .options {
       position: absolute;
+      will-change: height;
       display: grid;
       width: 100%;
       padding-left: .4rem;
