@@ -18,7 +18,7 @@ export class BooksService {
   private _maxResults: number = 15;
   private _totalResults: number = -1;
   private _page: number = 0;
-  private _configs: { [key: string]: string } = {'_lang' : 'en', '_lastSearch' : '','_totalResults': '-1'};
+  private _configs: { [key: string]: string } = {'_lang' : 'en', '_lastSearch' : '','_totalResults': '-1', '_by': '1'};
   private _lang: string;
   private _lastSearch: string;
 
@@ -46,6 +46,8 @@ export class BooksService {
     this._lang = this._configs['_lang'];
     this._lastSearch = this._configs['_lastSearch'];
     this._totalResults = Number(this._configs['_totalResults']);
+    this._by = Number(this._configs['_by']);
+    this._query = this._lastSearch;
   }
   get response(): Book[] {
     return this._response;
@@ -62,11 +64,15 @@ export class BooksService {
   get totalResults(): number {
     return this._totalResults;
   }
+  get index(): number {
+    return this._index;
+  }
   search(query: string, by: number): void {
     this._query = query.trim().toLowerCase();
     this._lastSearch = this._query;
     this._configs['_lastSearch'] = this._query;
     this._by = by;
+    this._configs['_by'] = String(this._by);
     this._index = 0;
     this._page = 0;
     const params = new HttpParams()
@@ -86,6 +92,7 @@ export class BooksService {
       localStorage.setItem('lastRequest', JSON.stringify(this._response));
       localStorage.setItem('booksReviewsConfig', JSON.stringify(this._configs));
     });
+    console.log('last serach'+this._query+' '+'Search by'+this._searchBy[this._by]);
   }
   nextPage(): void {
     this._index = this._page===Math.ceil(this._totalResults/this._maxResults) ? 0 : this._index+this._maxResults;
@@ -101,7 +108,9 @@ export class BooksService {
     this.http.get<BooksResponse>(`${this._apiUri}q=${this._searchBy[this._by]}${this._query}`, { params })
       .subscribe( (response) => {
       this._response = response.items;
+      console.log(response);
     });
+    console.log('last serach'+this._query+' '+'Search by'+this._searchBy[this._by]);
   }
   previusPage(): void {
     this._index=this._page===0?Math.ceil(this._totalResults/this._maxResults):this._index-this._maxResults;
@@ -117,6 +126,7 @@ export class BooksService {
     this.http.get<BooksResponse>(`${this._apiUri}q=${this._searchBy[this._by]}${this._query}`, { params })    
       .subscribe( (response) => {
       this._response = response.items;
+      console.log(response);
     });
   }
   setMaxResults(n: number): void {

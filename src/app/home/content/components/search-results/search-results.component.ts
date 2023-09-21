@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Book } from 'src/app/interfaces/books-response.interface';
+import { BooksService } from 'src/app/services/books.service';
 
 @Component({
   selector: 'app-search-results',
@@ -9,5 +12,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent {
-
+  constructor(
+    private readonly booksService: BooksService,
+    private router: Router
+  ) {}
+  get books(): Book[] {
+    return this.booksService.response;
+  }
 }

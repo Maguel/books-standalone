@@ -17,6 +17,26 @@
   grid-template-rows: 15% 1fr;
   padding-left: .7rem;
 }
+.div-no-results {
+  position: absolute;
+  display: grid;
+  width: 100%;
+  height: 48%;
+  padding-top: .3rem;
+  padding-left: .7rem;
+  padding-right: .7rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: 15% 1fr;
+  & img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    align-self: center;
+    justify-self: center;
+  }
+}
 .div-first-time {
   position: absolute;
   display: grid;
@@ -57,13 +77,13 @@ h4 {
 .book {
   position: relative;
   display: grid;
-  cursor: pointer;
   height: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: 75% 25%;
   background-color: var(--color0);
   border-radius: .8rem;
   transition: box-shadow .3s ease;
+  animation: appearAnim 2.5s ease;
 }
 .books::-webkit-scrollbar {
   height: 5px;
@@ -145,5 +165,48 @@ h4 {
     height: 2.2rem;          
     max-height: 2.5em;
     max-width: 9rem;   
+  }
+}
+.next {
+  position: relative;
+  display: grid;
+  align-self: center;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  min-width: 2rem;
+  font-size: 2.5rem;
+  border-style: none;
+  background-color: var(--color1);
+  color: var(--color5);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+.next:hover {
+  background-color: var(--color2);
+}
+.prev {
+  position: relative;
+  display: grid;
+  align-self: center;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+  min-width: 2rem;
+  font-size: 2.5rem;
+  border-style: none;
+  background-color: var(--color1);
+  color: var(--color5);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.prev:hover {
+  background-color: var(--color2);
+}
+@keyframes appearAnim {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 100%;
   }
 }
