@@ -1,10 +1,14 @@
-<div *ngIf="books.length===0">
-  Start searching a book 
+<div class="div-first-time" *ngIf="totalResults===-1">
+  <h1>Start searching a book.</h1>
+  <img src="https://media.giphy.com/media/IBFvMzgB6fFmysKsmP/giphy.gif" alt="">
 </div>
-<div *ngIf="books.length!==0" class="last-search">
+<div class="div-no-results" *ngIf="totalResults===0">
+  There no results for: {{lastSearch | titlecase}}.
+</div>
+<div *ngIf="totalResults!==-1 && totalResults !== 0" class="last-search">
   <h4>Last Search: {{lastSearch | titlecase}}</h4>
   <div appXScroll class="books">
-    <div class="book" *ngFor="let book of books" (click)="saveBook(book)">
+    <div class="book" *ngFor="let book of books" (click)="viewBook(book)">
       <div class="back-img" [style.background-image]="'url(' + httpsForm(book.volumeInfo.imageLinks?.thumbnail) + ')'"></div>
       <div class="div-img"><img src="{{httpsForm(book.volumeInfo.imageLinks?.thumbnail)}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
       <div class="div-info">
@@ -15,10 +19,10 @@
     <button *ngIf="totalResults > 10">siguiente</button>
   </div>
 </div>
-<div *ngIf="books.length!==0" class="view-history">
+<div *ngIf="totalResults!==-1" class="view-history">
   <h4>View history</h4>
   <div appXScroll class="books">
-    <div class="book" *ngFor="let book of booksViewed" (click)="saveBook(book)">
+    <div class="book" *ngFor="let book of booksViewed" (click)="viewBook(book)">
       <div class="back-img" [style.background-image]="'url(' + httpsForm(book.volumeInfo.imageLinks?.thumbnail) + ')'"></div>
       <div class="div-img"><img src="{{httpsForm(book.volumeInfo.imageLinks?.thumbnail)}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
       <div class="div-info">

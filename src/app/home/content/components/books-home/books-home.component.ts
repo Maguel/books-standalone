@@ -28,7 +28,7 @@ export class BooksHomeComponent {
   get totalResults(): number {
     return this.booksService.totalResults;
   }
-  saveBook(b: Book): void {
+  viewBook(b: Book): void {
     this.book = b;
     this.booksService.saveBookViewed(b);
   }

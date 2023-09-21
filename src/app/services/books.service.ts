@@ -16,9 +16,9 @@ export class BooksService {
   private _by: number = 0;
   private _index = 0;
   private _maxResults: number = 15;
-  private _totalResults: number = 0;
+  private _totalResults: number = -1;
   private _page: number = 0;
-  private _configs: { [key: string]: string } = {'_lang' : 'en', '_lastSearch' : '','_totalResults': ''};
+  private _configs: { [key: string]: string } = {'_lang' : 'en', '_lastSearch' : '','_totalResults': '-1'};
   private _lang: string;
   private _lastSearch: string;
 
