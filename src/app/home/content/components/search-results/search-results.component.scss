@@ -74,7 +74,7 @@
   & .book {
     display: grid;
     grid-template-columns: 8rem 1fr;
-    grid-template-rows: 30% repeat(3, auto);
+    grid-template-rows: 40% repeat(3, auto);
     grid-template-areas: 
       "i t1"
       "i t2"
