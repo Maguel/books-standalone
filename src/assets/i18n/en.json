@@ -1,0 +1,15 @@
+{
+  "books_reviews": "Books Reviews",
+  "search": "search",
+  "total_results_for": "Total results for",
+  "app_designed_and_developed_by": "App designed and developed by:",
+  "language": "Language",
+  "by_title": "by title",
+  "by_author": "by author",
+  "by_ISBN": "by ISBN",
+  "last_search": "Last Search:",
+  "viewed_history": "Viewed history",
+  "theres_no_results": "There's no results for:",
+  "theres_no_results_for_last": "There's no results for last search:",
+  "start_searching": "Start searching a book."
+}

@@ -22,7 +22,7 @@
   </div>
 </div>
 <div *ngIf="totalResults!==-1" class="view-history">
-  <h4>View history</h4>
+  <h4>Viewed history</h4>
   <div appXScroll class="books">
     <div class="book" *ngFor="let book of booksViewed" (click)="viewBook(book)">
       <div class="back-img" [style.background-image]="'url(' + httpsForm(book.volumeInfo.imageLinks?.thumbnail) + ')'"></div>

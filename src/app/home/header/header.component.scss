@@ -96,10 +96,10 @@ header {
   }
 }
 .hide {
-  animation: toggleDown .5s forwards ease;
+  animation: toggleDown .4s forwards ease;
 }
 .show {
-  animation: toggleUp .8s forwards ease;
+  animation: toggleUp .4s forwards ease;
 }
 @keyframes borderRadiusIn {
   from {
@@ -123,13 +123,13 @@ header {
     height: 1rem;
     visibility: visible;
   } to {
-    height: 4rem;
+    height: 3.5rem;
     visibility: visible;
   }
 }
 @keyframes toggleDown {
   from {
-    height: 4rem;
+    height: 3.5rem;
     visibility: visible;
   } 70% {
     opacity: 90%;
