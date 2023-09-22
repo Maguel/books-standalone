@@ -1,5 +1,5 @@
 <header>
-  <h3>Books Reviews</h3>
+  <h3 (click)="goHome()">Books Reviews</h3>
   <input (keyup.enter)="search()" [(ngModel)]="query" type="text" name="searcher" id="searcher" placeholder="Search">
   <div class="custom-select">
     <div class="selected-option" (click)="showOptions()" [class.borderIn]="border" [class.borderOut]="!border">{{searchBy}}<span>&nbsp;&gt;</span></div>

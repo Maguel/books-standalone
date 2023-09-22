@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/interfaces/books-response.interface';
 import { BooksService } from 'src/app/services/books.service';
+import { XScrollButtonDirective } from './x-scroll-button.directive';
 import { XScrollDirective } from './x-scroll.directive';
 
 @Component({
   selector: 'app-books-home',
   standalone: true,
-  imports: [CommonModule, XScrollDirective],
+  imports: [CommonModule, XScrollDirective, XScrollButtonDirective],
   templateUrl: './books-home.component.html',
   styleUrls: ['./books-home.component.scss']
 })

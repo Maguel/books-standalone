@@ -46,4 +46,7 @@ export class HeaderComponent {
       this.booksService.search(this.query, this.by[this.searchBy]);
     },300);
   }
+  goHome(): void {
+    this.router.navigate(['/home']);
+  }
 }

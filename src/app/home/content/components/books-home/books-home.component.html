@@ -18,7 +18,7 @@
         <h6>{{book.volumeInfo.publishedDate}}</h6>
       </div>
     </div>
-    <button class="next" *ngIf="totalResults > 10" (click)="next()">»</button>
+    <button appXScrollButton class="next" *ngIf="totalResults > 10" (click)="next()">»</button>
   </div>
 </div>
 <div *ngIf="totalResults!==-1" class="view-history">

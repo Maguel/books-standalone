@@ -5,11 +5,17 @@ header {
   grid-template-columns: 1fr 1fr 17vh;
   background-color: var(--color5);
   & h3 {
+    display: flex;
     user-select: none;
     font-size: 3vh;
+    width: fit-content;
     padding-left: 1rem;
     align-self: center;
     color: var(--color0);
+  }
+  & h3:hover {
+    color: white;
+    transform: scale(1.01);
   }
   & input {
     width: 100%;

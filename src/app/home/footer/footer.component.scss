@@ -9,10 +9,11 @@ footer {
   background-color: var(--color5);
   & p {
     user-select: none;
-    & span {
+    & a {
+      color: var(--color0);
       user-select: text;
     }
-    & span::selection {
+    & a::selection {
       background-color: white;
       color: var(--color5);
     }

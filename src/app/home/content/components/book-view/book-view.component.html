@@ -1,9 +1,9 @@
 <div class="book-selected" *ngIf="bookSelected">
   <img src="{{bookSelected.volumeInfo.imageLinks?.thumbnail}}" alt="">
-  <h5>{{bookSelected.volumeInfo.title}}</h5>
-  <h6>{{bookSelected.volumeInfo.publishedDate}}</h6>
-  <h6>{{bookSelected.volumeInfo.authors}}</h6>
-  <h6>{{bookSelected.volumeInfo.publisher}}</h6>
-  <h6>{{bookSelected.volumeInfo.description}}</h6>
+  <h2>{{bookSelected.volumeInfo.title}}</h2>
+  <h4>{{bookSelected.volumeInfo.publishedDate}}</h4>
+  <h4>{{bookSelected.volumeInfo.authors}}</h4>
+  <h4>{{bookSelected.volumeInfo.publisher}}</h4>
+  <p>{{bookSelected.volumeInfo.description}}</p>
   <h3>Aqui van las reviews</h3>
 </div>
