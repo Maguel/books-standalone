@@ -85,7 +85,8 @@ export class BooksService {
       .set('projection', 'full')
       .set('orderBy', 'relevance')
       .set('key', this._apiKey)
-      .set('filter', 'ebooks');
+      .set('filter', 'ebooks')
+      .set('printType', 'books');
     this.http.get<BooksResponse>(`${this._apiUri}q=${this._searchBy[this._by]}${this._query}`, { params })
     .subscribe( (response) => {
       this._response = response.items;
@@ -112,7 +113,8 @@ export class BooksService {
       .set('projection', 'full')
       .set('orderBy', 'relevance')
       .set('key', this._apiKey)
-      .set('filter', 'ebooks');
+      .set('filter', 'ebooks')
+      .set('printType', 'books');
     this.http.get<BooksResponse>(`${this._apiUri}q=${this._searchBy[this._by]}${this._query}`, { params })
       .subscribe( (response) => {
       this._response = response.items;
@@ -130,7 +132,8 @@ export class BooksService {
       .set('projection', 'full')
       .set('orderBy', 'relevance')
       .set('key', this._apiKey)
-      .set('filter', 'ebooks');
+      .set('filter', 'ebooks')
+      .set('printType', 'books');
     this.http.get<BooksResponse>(`${this._apiUri}q=${this._searchBy[this._by]}${this._query}`, { params })    
       .subscribe( (response) => {
       this._response = response.items;

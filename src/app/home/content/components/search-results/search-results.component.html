@@ -10,6 +10,7 @@
 <div *ngIf="totalResults!==0" class="div-all-results-view">
   <div class="div-config">
     Total results for {{lastSearch}}: {{totalResults}}
+    
   </div>
   <div class="div-all-results">
     <div class="book" *ngFor="let book of books" (click)="viewBook(book)">
