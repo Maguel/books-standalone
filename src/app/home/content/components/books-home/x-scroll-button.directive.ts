@@ -14,7 +14,7 @@ export class XScrollButtonDirective {
     const parentElement = element.parentElement;
     const start = parentElement.scrollLeft;
     const change = 0 - start;
-    const duration = 1000; // Duración en milisegundos
+    const duration = 1000; 
     let startTime: number | null = null;
 
     const animateScroll = (currentTime: number) => {
