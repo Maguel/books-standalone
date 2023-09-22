@@ -17,7 +17,7 @@ export class BooksService {
   private _index = 0;
   private _maxResults: number = 15;
   private _totalResults: number = -1;
-  private _page: number = 0;
+  private _page: number = 1;
   private _configs: { [key: string]: string } = {'_lang' : 'en', '_lastSearch' : '','_totalResults': '-1', '_by': '1'};
   private _lang: string;
   private _lastSearch: string;
@@ -77,7 +77,7 @@ export class BooksService {
     this._by = by;
     this._configs['_by'] = String(this._by);
     this._index = 0;
-    this._page = 0;
+    this._page = 1;
     const params = new HttpParams()
       .set('startIndex', this._index.toString())
       .set('maxResults', this._maxResults.toString())
@@ -96,11 +96,15 @@ export class BooksService {
       localStorage.setItem('lastRequest', JSON.stringify(this._response));
       localStorage.setItem('booksReviewsConfig', JSON.stringify(this._configs));
     });
-    console.log('last serach'+this._query+' '+'Search by'+this._searchBy[this._by]);
+    //console.log('last serach'+this._query+' '+'Search by'+this._searchBy[this._by]);
   }
   nextPage(): void {
+    console.log('Index antes:'+this._index + 'total de pages: '+Math.ceil(this._totalResults/this._maxResults));
+    console.log('Pague antes: '+this._page);
     this._index = this._page===Math.ceil(this._totalResults/this._maxResults) ? 0 : this._index+this._maxResults;
-    this._page = this._page===Math.ceil(this._totalResults/this._maxResults) ? 0 : this._page+1;
+    this._page = this._page===Math.ceil(this._totalResults/this._maxResults) ? 1 : this._page+1;
+    console.log('Index despues:'+this._index);
+    console.log('Pague despues: '+this._page);
     const params = new HttpParams()
       .set('startIndex', this._index.toString())
       .set('maxResults', this._maxResults.toString())
@@ -114,11 +118,11 @@ export class BooksService {
       this._response = response.items;
       console.log(response);
     });
-    console.log('last serach'+this._query+' '+'Search by'+this._searchBy[this._by]);
+    //console.log('last serach'+this._query+' '+'Search by'+this._searchBy[this._by]);
   }
   previusPage(): void {
-    this._index=this._page===0?Math.ceil(this._totalResults/this._maxResults):this._index-this._maxResults;
-    this._page = this._page===Math.ceil(this._totalResults/this._maxResults) ? 0 : this._page-1;
+    this._index=this._page===1?Math.ceil(this._totalResults/this._maxResults):this._index-this._maxResults;
+    this._page = this._page===Math.ceil(this._totalResults/this._maxResults) ? 1 : this._page-1;
     const params = new HttpParams()
       .set('startIndex', this._index.toString())
       .set('maxResults', this._maxResults.toString())
