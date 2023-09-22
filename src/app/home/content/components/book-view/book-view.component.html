@@ -1,4 +1,4 @@
-<div class="book-selected">
+<div class="book-selected" *ngIf="bookSelected">
   <img src="{{bookSelected.volumeInfo.imageLinks?.thumbnail}}" alt="">
   <h5>{{bookSelected.volumeInfo.title}}</h5>
   <h6>{{bookSelected.volumeInfo.publishedDate}}</h6>
