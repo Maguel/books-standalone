@@ -14,8 +14,8 @@ import { BooksService } from 'src/app/services/books.service';
 export class HeaderComponent {
   searchBy: string = 'by title';
   query: string = '';
-  by: { [key: string]: number } = {'by title': 1, 'by author':2, 'by publisher': 3, 'by subject': 4, 'by ISBN': 5};
-  list: string[] = ['by title', 'by author', 'by publisher', 'by subject', 'by ISBN'];
+  by: { [key: string]: number } = {'by title': 1, 'by author':2, 'by ISBN': 3};
+  list: string[] = ['by title', 'by author', 'by ISBN'];
   show: boolean = false;
   border: boolean = true;
 

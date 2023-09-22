@@ -46,6 +46,7 @@ footer {
         display: grid;
         will-change: height;
         position: absolute;
+        visibility: hidden;
         width: 3.5rem;
         font-size: 1.1rem;
         gap: .3rem;
@@ -104,19 +105,23 @@ footer {
 @keyframes toggleUp {
   from {
     height: 0;
+    visibility: hidden;
   } to {
     height: 8.3rem;
+    visibility: visible;
   }
 }
 @keyframes toggleDown {
   from {
     height: 8.3rem;
     opacity: 100%;
+    visibility: visible;
   } 70% {
     opacity: 90%;
   } to {
     height: 0;
     opacity: 0;
+    visibility: hidden;
   }
 }
 @keyframes initAppear {

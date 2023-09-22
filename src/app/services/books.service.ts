@@ -9,7 +9,7 @@ import { Book, BooksResponse } from '../interfaces/books-response.interface';
 export class BooksService {
   private _apiKey: string = 'AIzaSyAHyTITutAZFqmLCCCe8pCi603PAMnNBoM';
   private _apiUri: string = 'https://www.googleapis.com/books/v1/volumes?';
-  private readonly _searchBy: { [key: number]: string } = {1:'intitle:',2:'inauthor:',3:'inpublisher:',4:'subject:',5:'isbn:'};
+  private readonly _searchBy: { [key: number]: string } = {1:'intitle:',2:'inauthor:',3:'isbn:'};
   private _response: Book[] = [];
   private _viewsHistory: Book[] = [];
   private _query: string = '';

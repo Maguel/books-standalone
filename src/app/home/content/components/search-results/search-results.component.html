@@ -17,9 +17,9 @@
       <div class="back-img" [style.background-image]="'url(' + httpsForm(book.volumeInfo.imageLinks?.thumbnail) + ')'"></div>
       <div class="div-img"><img src="{{httpsForm(book.volumeInfo.imageLinks?.thumbnail)}}" alt="https://media.istockphoto.com/vectors/brown-closed-book-vector-id506714069?k=20&m=506714069&s=170667a&w=0&h=bWl5FL0dJuyvE3AguuyOjRZAtlY0_X3MJQnvuIhTn2E="></div>
       <h4 style="grid-area: t1;">{{book.volumeInfo.title}}</h4>
-      <h5 style="grid-area: t2;">{{book.volumeInfo.publishedDate}}</h5>
-      <h5 style="grid-area: t3;">{{book.volumeInfo.authors}}</h5>
-      <h5 style="grid-area: t4;">{{book.volumeInfo.publisher}}</h5>
+      <h5 style="grid-area: t2;"><ng-container>Authors:</ng-container><br>{{book.volumeInfo.authors}}</h5>
+      <h5 style="grid-area: t3;"><ng-container>Publisher:</ng-container><br>{{book.volumeInfo.publisher}}</h5>
+      <h5 style="grid-area: t4;">{{book.volumeInfo.publishedDate}}</h5>
     </div>
   </div>
   <div class="paginator">
