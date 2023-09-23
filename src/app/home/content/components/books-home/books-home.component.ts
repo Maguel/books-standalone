@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/interfaces/books-response.interface';
 import { BooksService } from 'src/app/services/books.service';
+import { TranslateService } from 'src/app/services/translate.service';
 import { XScrollButtonDirective } from './x-scroll-button.directive';
 import { XScrollDirective } from './x-scroll.directive';
 
@@ -17,6 +18,7 @@ export class BooksHomeComponent {
   book!: Book;
   constructor(
     private readonly booksService: BooksService,
+    private readonly translateService: TranslateService,
     private router: Router
   ) {}
   get books(): Book[] {

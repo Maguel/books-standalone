@@ -45,6 +45,8 @@ footer {
       & .options {
         display: grid;
         will-change: height;
+        will-change: opacity;
+        will-change: visibility;
         position: absolute;
         visibility: hidden;
         width: 3.5rem;
@@ -81,11 +83,11 @@ footer {
   }
 }
 .hide {
-  animation: toggleDown .5s forwards ease;
+  animation: toggleDown .3s forwards ease;
   z-index: 0;
 }
 .show {
-  animation: toggleUp .5s forwards ease;
+  animation: toggleUp .3s forwards ease;
   z-index: 0;
 }
 @keyframes borderRadiusIn {
@@ -107,17 +109,17 @@ footer {
     height: 0;
     visibility: hidden;
   } to {
-    height: 8.3rem;
+    height: 2rem;
     visibility: visible;
   }
 }
 @keyframes toggleDown {
   from {
-    height: 8.3rem;
+    height: 2rem;
     opacity: 100%;
     visibility: visible;
-  } 70% {
-    opacity: 90%;
+  } 90% {
+    opacity: 95%;
   } to {
     height: 0;
     opacity: 0;

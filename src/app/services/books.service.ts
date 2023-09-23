@@ -27,7 +27,7 @@ export class BooksService {
     readonly http:HttpClient
   ) 
   {
-    console.log('Books Service is running.')
+    console.log('Books Service is running.');
     const storedDataLastRequest = localStorage.getItem('lastRequest');
     const storedDataViewHistory = localStorage.getItem('viewHistory');
     const storedBooksReviewsConfig = localStorage.getItem('booksReviewsConfig');

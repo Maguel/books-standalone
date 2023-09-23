@@ -1,7 +1,7 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BooksService } from 'src/app/services/books.service';
+import { TranslateService } from 'src/app/services/translate.service';
 
 @Component({
   selector: 'app-footer',
@@ -12,13 +12,14 @@ import { BooksService } from 'src/app/services/books.service';
 })
 export class FooterComponent {
   langSelect: string = '';
-  lang: string[] = ['any', 'pt', 'it', 'fr', 'es', 'en'];
+  lang: string[] = ['es', 'en'];
   show: boolean = false;
   border: boolean = true;
   constructor(
-    private readonly booksService: BooksService
+    private readonly translateService: TranslateService,
+    private cd: ChangeDetectorRef
   ) {
-    this.langSelect = booksService.language;
+    this.langSelect = translateService.language;
   }
   showOptions(): void {
     if(!this.show) {
@@ -35,6 +36,10 @@ export class FooterComponent {
   }
   setLanguage(l: string): void {
     this.langSelect = l;
-    this.booksService.setLang(l);
+    this.translateService.setTranslateLang(l);
+    this.cd.detectChanges();
+  }
+  translate(s: string): string {
+    return this.translateService.translate(s);
   }
 }
