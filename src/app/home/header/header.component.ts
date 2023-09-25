@@ -14,8 +14,10 @@ import { TranslateService } from 'src/app/services/translate.service';
 })
 export class HeaderComponent {
   searchBy: string = 'by_title';
+  langBySearch: string = 'en';
   query: string = '';
   by: { [key: string]: number } = {'by_title': 1, 'by_author':2, 'by_ISBN': 3};
+  lang: string[] = ['en','es','fr'];
   list: string[] = ['by_title', 'by_author', 'by_ISBN'];
   show: boolean = false;
   border: boolean = true;
@@ -28,6 +30,10 @@ export class HeaderComponent {
 
   setSearchBy(s: string): void {
     this.searchBy = s;
+  }
+  setLangBySearch(l: string): void {
+    this.langBySearch = l;
+    this.booksService.setLang(l);
   }
   showOptions(): void {
     if(!this.show) {
@@ -53,5 +59,8 @@ export class HeaderComponent {
   }
   translate(s: string): string {
     return this.translateService.translate(s);
+  }
+  setSearchLang(l: string): void {
+    this.booksService.setLang(l);
   }
 }

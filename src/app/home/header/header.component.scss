@@ -40,7 +40,7 @@ header {
     top: 50%;
     animation: initAppear 1s forwards ease;
     cursor: default;
-    & .selected-option {
+    & .filter-by {
       position: relative;
       display: flex;
       justify-content: space-between;
@@ -58,6 +58,9 @@ header {
         transition: transform 0.7s ease;
       }
     }
+    & .filter-lang-by {
+      margin-top: .6rem;
+    }
     & .options {
       position: absolute;
       will-change: height;
@@ -74,10 +77,11 @@ header {
         display: grid;
         align-content: center;
         width: 100%;
-        transition: padding-left .3s ease, font-size .3s ease;
+        padding-left: .3rem;
+        transition: padding-left .3s ease, border-radius .8s ease;
       }
       & .option:hover {
-        padding-left: .3rem;
+        padding-left: .7rem;
         //font-size: 1.02rem;
       }
     }
@@ -101,6 +105,11 @@ header {
 .show {
   animation: toggleUp .4s forwards ease;
 }
+.selected {
+  color: white;
+  background-color: var(--color4);
+  border-radius: 1rem;
+}
 @keyframes borderRadiusIn {
   from {
     border-radius: 0;
@@ -123,13 +132,13 @@ header {
     height: 1rem;
     visibility: visible;
   } to {
-    height: 3.5rem;
+    height: 10.5rem;
     visibility: visible;
   }
 }
 @keyframes toggleDown {
   from {
-    height: 3.5rem;
+    height: 10.5rem;
     visibility: visible;
   } 70% {
     opacity: 90%;

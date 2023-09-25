@@ -13,5 +13,6 @@
   "theres_no_results_for_last": "There's no results for last search:",
   "start_searching": "Start searching a book.",
   "publisher": "Publisher:",
-  "authors": "Authors:"
+  "authors": "Authors:",
+  "filter_by": "Filter"
 }
