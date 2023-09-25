@@ -71,13 +71,13 @@ footer {
   }
 }
 .borderIn {
-  animation: borderRadiusIn 0.3s forwards ease;
+  animation: borderRadiusIn 0.5s forwards ease;
   & span {
     transform: rotate(-90deg) scaleY(1.4) scaleX(.7);
   }
 }
 .borderOut {
-  animation: borderRadiusOut 0.3s forwards ease;
+  animation: borderRadiusOut 0.5s forwards ease;
   & span {
     transform: rotate(90deg) scaleY(1.4) scaleX(.7);
   }
@@ -116,10 +116,11 @@ footer {
 @keyframes toggleDown {
   from {
     height: 2rem;
-    opacity: 100%;
+    opacity: 1;
     visibility: visible;
   } 90% {
-    opacity: 95%;
+    opacity: 50%;
+    visibility: visible;
   } to {
     height: 0;
     opacity: 0;

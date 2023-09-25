@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
+import { TranslateService } from 'src/app/services/translate.service';
 
 @Component({
   selector: 'app-header',
@@ -12,15 +13,16 @@ import { BooksService } from 'src/app/services/books.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  searchBy: string = 'by title';
+  searchBy: string = 'by_title';
   query: string = '';
-  by: { [key: string]: number } = {'by title': 1, 'by author':2, 'by ISBN': 3};
-  list: string[] = ['by title', 'by author', 'by ISBN'];
+  by: { [key: string]: number } = {'by_title': 1, 'by_author':2, 'by_ISBN': 3};
+  list: string[] = ['by_title', 'by_author', 'by_ISBN'];
   show: boolean = false;
   border: boolean = true;
 
   constructor(
     private readonly booksService: BooksService,
+    private readonly translateService: TranslateService,
     private router: Router
   ) {}
 
@@ -48,5 +50,8 @@ export class HeaderComponent {
   }
   goHome(): void {
     this.router.navigate(['/home']);
+  }
+  translate(s: string): string {
+    return this.translateService.translate(s);
   }
 }

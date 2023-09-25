@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/interfaces/books-response.interface';
 import { BooksService } from 'src/app/services/books.service';
+import { TranslateService } from 'src/app/services/translate.service';
 
 @Component({
   selector: 'app-search-results',
@@ -15,6 +16,7 @@ export class SearchResultsComponent {
   book!: Book; 
   constructor(
     private readonly booksService: BooksService,
+    private readonly translateService: TranslateService,
     private router: Router
   ) {}
   get books(): Book[] {
@@ -46,5 +48,8 @@ export class SearchResultsComponent {
     this.router.navigate(['home/book']);
     this.book = b;
     this.booksService.saveBookViewed(b);
+  }
+  translate(s: string): string {
+    return this.translateService.translate(s);
   }
 }

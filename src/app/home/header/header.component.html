@@ -1,11 +1,11 @@
 <header>
-  <h3 (click)="goHome()">Books Reviews</h3>
-  <input (keyup.enter)="search()" [(ngModel)]="query" type="text" name="searcher" id="searcher" placeholder="Search">
+  <h3 (click)="goHome()">{{translate('books_reviews')}}</h3>
+  <input (keyup.enter)="search()" [(ngModel)]="query" type="text" name="searcher" id="searcher" placeholder="{{translate('search')}}">
   <div class="custom-select">
-    <div class="selected-option" (click)="showOptions()" [class.borderIn]="border" [class.borderOut]="!border">{{searchBy}}<span>&nbsp;&gt;</span></div>
+    <div class="selected-option" (click)="showOptions()" [class.borderIn]="border" [class.borderOut]="!border">{{translate(searchBy)}}<span>&nbsp;&gt;</span></div>
     <div class="options" [class.show]="show" [class.hide]="!show">
       <ng-container *ngFor="let item of list">
-        <div class="option" *ngIf="item!==searchBy" (click)="showOptions()" (click)="setSearchBy(item)">{{item}}</div>
+        <div class="option" *ngIf="item!==searchBy" (click)="showOptions()" (click)="setSearchBy(item)">{{translate(item)}}</div>
       </ng-container>
     </div>
   </div>

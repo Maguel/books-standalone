@@ -11,5 +11,7 @@
   "viewed_history": "Viewed history",
   "theres_no_results": "There's no results for:",
   "theres_no_results_for_last": "There's no results for last search:",
-  "start_searching": "Start searching a book."
+  "start_searching": "Start searching a book.",
+  "publisher": "Publisher:",
+  "authors": "Authors:"
 }

@@ -54,4 +54,7 @@ export class BooksHomeComponent {
   previus():void {
     this.booksService.previusPage();
   }
+  translate(s: string): string {
+    return this.translateService.translate(s);
+  }
 }

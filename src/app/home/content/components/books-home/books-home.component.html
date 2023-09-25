@@ -1,13 +1,13 @@
 <div class="div-first-time" *ngIf="totalResults===-1">
-  <h1>Start searching a book.</h1>
+  <h1>{{translate('start_searching')}}</h1>
   <img src="https://media.giphy.com/media/IBFvMzgB6fFmysKsmP/giphy.gif" alt="">
 </div>
 <div class="div-no-results" *ngIf="totalResults===0">
-  <h4>There's no results for last search: {{lastSearch | titlecase}}.</h4>
+  <h4>{{translate('theres_no_results_for_last')}} {{lastSearch | titlecase}}.</h4>
   <img src="https://media.giphy.com/media/jU9OCvBiO1besabUKU/giphy.gif" alt="">
 </div>
 <div *ngIf="totalResults!==-1 && totalResults !== 0" class="last-search">
-  <h4>Last Search: {{lastSearch | titlecase}}</h4>
+  <h4>{{translate('last_search')}} {{lastSearch | titlecase}}</h4>
   <div appXScroll class="books">
     <button class="prev" *ngIf="index!==0" (click)="previus()">«</button>
     <div class="book" *ngFor="let book of books" (click)="viewBook(book)">
@@ -22,7 +22,7 @@
   </div>
 </div>
 <div *ngIf="totalResults!==-1" class="view-history">
-  <h4>Viewed history</h4>
+  <h4>{{translate('viewed_history')}}</h4>
   <div appXScroll class="books">
     <div class="book" *ngFor="let book of booksViewed" (click)="viewBook(book)">
       <div class="back-img" [style.background-image]="'url(' + httpsForm(book.volumeInfo.imageLinks?.thumbnail) + ')'"></div>
