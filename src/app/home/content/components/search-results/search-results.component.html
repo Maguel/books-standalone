@@ -21,13 +21,4 @@
       <h5 style="grid-area: t4;">{{book.volumeInfo.publishedDate}}</h5>
     </div>
   </div>
-  <div class="paginator">
-    <button (click)="previus()" type="button">&lt;</button>
-    <div class="pages">
-      <ng-container *ngFor="let n of pages">
-        <span [class.actual-page]="page===n">{{n}}</span>
-      </ng-container>    
-    </div>
-    <button (click)="next()" type="button">&gt;</button>
-  </div>
 </div>
