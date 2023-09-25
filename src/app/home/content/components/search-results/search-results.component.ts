@@ -14,6 +14,7 @@ import { TranslateService } from 'src/app/services/translate.service';
 })
 export class SearchResultsComponent {
   book!: Book; 
+  pages: number[] = [];
   constructor(
     private readonly booksService: BooksService,
     private readonly translateService: TranslateService,
@@ -30,6 +31,9 @@ export class SearchResultsComponent {
   }
   get lastSearch(): string {
     return this.booksService.lastSearch;
+  }
+  get page(): number {
+    return this.booksService.page;
   }
   httpsForm(s?: string): string {
     if(s){

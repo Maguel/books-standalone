@@ -10,7 +10,6 @@
 <div *ngIf="totalResults!==0" class="div-all-results-view">
   <div class="div-config">
     {{translate('total_results_for')}} {{lastSearch}}: {{totalResults}}
-    
   </div>
   <div class="div-all-results">
     <div class="book" *ngFor="let book of books" (click)="viewBook(book)">
@@ -23,6 +22,12 @@
     </div>
   </div>
   <div class="paginator">
-    Aki va el paginador
+    <button (click)="previus()" type="button">&lt;</button>
+    <div class="pages">
+      <ng-container *ngFor="let n of pages">
+        <span [class.actual-page]="page===n">{{n}}</span>
+      </ng-container>    
+    </div>
+    <button (click)="next()" type="button">&gt;</button>
   </div>
 </div>
