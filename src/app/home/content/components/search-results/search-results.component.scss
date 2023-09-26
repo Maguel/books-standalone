@@ -60,9 +60,10 @@
   height: 100%;
   width: 100%;
   gap: 1rem;
-  grid-auto-rows: 13rem;
+  grid-auto-rows: 15rem;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   padding: 1rem;
+  padding-bottom: 10rem;
   overflow-y: auto;
   & .book {
     display: grid;
@@ -134,10 +135,25 @@
       z-index: 2; 
     }
     & h5 {
-      display: flex;
+      display: -webkit-box;           
+      -webkit-box-orient: vertical;   
+      -webkit-line-clamp: 2;   
+      overflow: hidden;               
+      text-overflow: ellipsis;
+      height: 2.8em;
+      max-height: 100%;
       padding-left: .3rem;
-      z-index: 2;
+      padding-top: .2rem;
+      padding-right: .5rem;
+      z-index: 2; 
       align-items: center;
+    }
+    & h6 {
+      display: flex;
+      width: 100%;
+      z-index: 2; 
+      align-items: center;
+      padding-right: .5rem;
     }
   }
   & .book:hover .back-img {
@@ -147,10 +163,15 @@
     box-shadow: -2px 2px 10px #00000025, 2px 2px 10px #00000025, 0px -2px 10px #00000025;
   } 
 }
+.div-all-results::-webkit-scrollbar {
+  height: 5px;
+  border-radius: 10px;
+}
 
-
-
-
+.div-all-results::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--color2);
+}
 
 .ldio > div {
   position: relative;

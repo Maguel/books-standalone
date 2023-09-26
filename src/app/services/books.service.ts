@@ -15,7 +15,7 @@ export class BooksService {
   private _query: string = '';
   private _by: number = 0;
   private _index = 0;
-  private _maxResults: number = 40;
+  private _maxResults: number = 20;
   private _totalResults: number = -1;
   private _page: number = 1;
   private _configs: { [key: string]: string } = {'_lang' : 'en', '_lastSearch' : '','_totalResults': '-1', '_by': '1'};
@@ -124,6 +124,28 @@ export class BooksService {
       console.log(response);
     });
     //console.log('last serach'+this._query+' '+'Search by'+this._searchBy[this._by]);
+  }
+  loadMoreBooks(): void {
+    this._index += this._maxResults;
+    if(this._page!== 0) {
+      this._page = this._page===Math.ceil(this._totalResults/this._maxResults) ? 0 : this._page+1;
+      const params = new HttpParams()
+      .set('startIndex', this._index.toString())
+      .set('maxResults', this._maxResults.toString())
+      .set('langRestrict', this._lang)
+      .set('projection', 'full')
+      .set('orderBy', 'relevance')
+      .set('key', this._apiKey)
+      .set('filter', 'ebooks')
+      .set('printType', 'books');
+    this.http.get<BooksResponse>(`${this._apiUri}q=${this._searchBy[this._by]}${this._query}`, { params })
+      .subscribe( (response) => {
+      if(response && Array.isArray(response.items)) {
+        this._response.push(...response.items);
+        console.log(response);
+      }
+    });
+    }
   }
   previusPage(): void {
     this._index=this._page===1?Math.ceil(this._totalResults/this._maxResults):this._index-this._maxResults;

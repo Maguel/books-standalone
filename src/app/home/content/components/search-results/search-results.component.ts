@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/interfaces/books-response.interface';
 import { BooksService } from 'src/app/services/books.service';
@@ -15,11 +15,14 @@ import { TranslateService } from 'src/app/services/translate.service';
 export class SearchResultsComponent {
   book!: Book; 
   pages: number[] = [];
+  isLoadingMoreData = false;
   constructor(
     private readonly booksService: BooksService,
     private readonly translateService: TranslateService,
+    private dc: ChangeDetectorRef,
     private router: Router
   ) {}
+ 
   get books(): Book[] {
     return this.booksService.response;
   }
@@ -55,5 +58,25 @@ export class SearchResultsComponent {
   }
   translate(s: string): string {
     return this.translateService.translate(s);
+  }
+
+  handleScroll(event: Event) {
+    const element = event.target as HTMLElement;
+    if (this.isNearBottom(element) && !this.isLoadingMoreData) {
+      this.isLoadingMoreData = true;
+      setTimeout(() => {
+        this.loadMoreData();
+      },200)
+    }
+  }
+  isNearBottom(element: HTMLElement): boolean {
+    const threshold = 5;
+    const position = element.scrollTop + element.clientHeight;
+    const height = element.scrollHeight;
+    return height - position <= threshold;
+  }
+  loadMoreData() {
+    this.booksService.loadMoreBooks();
+    this.isLoadingMoreData = false;
   }
 }

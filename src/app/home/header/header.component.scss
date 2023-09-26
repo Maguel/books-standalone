@@ -69,6 +69,7 @@ header {
       width: 100%;
       padding-left: .4rem;
       padding-right: .4rem;
+      padding-bottom: .5rem;
       background-color: var(--color1);
       top: .7rem;
       box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.1);
@@ -77,6 +78,7 @@ header {
         display: grid;
         align-content: center;
         width: 100%;
+        margin-top: .3rem;
         padding-left: .3rem;
         transition: padding-left .3s ease, border-radius .8s ease;
       }
@@ -132,13 +134,13 @@ header {
     height: 1rem;
     visibility: visible;
   } to {
-    height: 10.5rem;
+    height: 11.5rem;
     visibility: visible;
   }
 }
 @keyframes toggleDown {
   from {
-    height: 10.5rem;
+    height: 11.5rem;
     visibility: visible;
   } 70% {
     opacity: 90%;
