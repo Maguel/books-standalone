@@ -20,5 +20,6 @@
       <h5 style="grid-area: t3;"><ng-container>{{translate('publisher')}}</ng-container><br>{{book.volumeInfo.publisher}}</h5>
       <h6 style="grid-area: t4;">{{book.volumeInfo.publishedDate}}</h6>
     </div>
+    <button appYScrollButton class="to-up" type="button" *ngIf="showBtn">&lt;&lt;&lt;</button>
   </div>
 </div>

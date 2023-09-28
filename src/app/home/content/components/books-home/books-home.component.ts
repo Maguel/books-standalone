@@ -16,6 +16,8 @@ import { XScrollDirective } from './x-scroll.directive';
 })
 export class BooksHomeComponent {
   book!: Book;
+  showBtn!: boolean; 
+  isLoadingMoreData = false;
   constructor(
     private readonly booksService: BooksService,
     private readonly translateService: TranslateService,
@@ -36,6 +38,9 @@ export class BooksHomeComponent {
   get index(): number {
     return this.booksService.index;
   }
+  get maxResults(): number {
+    return this.booksService.maxResuts;
+  }
   viewBook(b: Book): void {
     this.router.navigate(['home/book']);
     this.book = b;
@@ -48,13 +53,32 @@ export class BooksHomeComponent {
       return ''
     }
   }
-  next():void {
-    this.booksService.nextPage();
-  }
-  previus():void {
-    this.booksService.previusPage();
-  }
   translate(s: string): string {
     return this.translateService.translate(s);
+  }
+  handleScroll(event: Event) {
+    const element = event.target as HTMLElement;
+    if (this.isNearBottom(element) && !this.isLoadingMoreData) {
+      this.isLoadingMoreData = true;
+      setTimeout(() => {
+        this.loadMoreData();
+      },300)
+    }
+    this.showBtn = this.isAway(element)?true:false;
+  }
+  isNearBottom(element: HTMLElement): boolean {
+    const threshold = 50;
+    const position = element.scrollLeft + element.clientWidth;
+    const width = element.scrollWidth;
+    return width - position <= threshold;
+  }
+  isAway(element: HTMLElement): boolean {
+    const position = element.scrollLeft + element.clientWidth;
+    const width = element.scrollWidth/3;
+    return width < position;
+  }
+  loadMoreData() {
+    this.booksService.loadMoreBooks();
+    this.isLoadingMoreData = false;
   }
 }

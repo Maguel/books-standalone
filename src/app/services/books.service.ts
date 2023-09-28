@@ -74,6 +74,9 @@ export class BooksService {
   get page(): number {
     return this._page;
   }
+  get maxResuts(): number {
+    return this._maxResults;
+  }
   search(query: string, by: number): void {
     this._query = query.trim().toLowerCase();
     this._configs['_lastSearch'] = this._query;

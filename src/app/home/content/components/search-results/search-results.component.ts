@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/interfaces/books-response.interface';
 import { BooksService } from 'src/app/services/books.service';
 import { TranslateService } from 'src/app/services/translate.service';
+import { YScrollButtonDirective } from './y-scroll-button.directive';
 
 @Component({
   selector: 'app-search-results',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, YScrollButtonDirective],
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss']
 })
@@ -16,10 +17,10 @@ export class SearchResultsComponent {
   book!: Book; 
   pages: number[] = [];
   isLoadingMoreData = false;
+  showBtn!: boolean;
   constructor(
     private readonly booksService: BooksService,
     private readonly translateService: TranslateService,
-    private dc: ChangeDetectorRef,
     private router: Router
   ) {}
  
@@ -66,8 +67,9 @@ export class SearchResultsComponent {
       this.isLoadingMoreData = true;
       setTimeout(() => {
         this.loadMoreData();
-      },200)
+      },100)
     }
+    this.showBtn = this.isAway(element)?true:false;
   }
   isNearBottom(element: HTMLElement): boolean {
     const threshold = 5;
@@ -75,8 +77,14 @@ export class SearchResultsComponent {
     const height = element.scrollHeight;
     return height - position <= threshold;
   }
+  isAway(element: HTMLElement): boolean {
+    const position = element.scrollTop + element.clientHeight;
+    const width = element.scrollHeight/2.5;
+    return width < position;
+  }
   loadMoreData() {
     this.booksService.loadMoreBooks();
     this.isLoadingMoreData = false;
   }
+
 }

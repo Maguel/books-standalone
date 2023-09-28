@@ -163,6 +163,23 @@
     box-shadow: -2px 2px 10px #00000025, 2px 2px 10px #00000025, 0px -2px 10px #00000025;
   } 
 }
+.to-up {
+  position: fixed;
+  z-index: 3;
+  bottom: 7vh;
+  right: 3vw;
+  height: 5.5vh;
+  width: 5.5vh;
+  transform: rotateZ(90deg);
+  padding-top: .4vh;
+  border-style: none;
+  border-radius: 1rem;
+  background-color: var(--color1);
+  box-shadow: -2px 2px 10px #00000025, 2px 2px 10px #00000025;
+}
+.to-up:hover {
+  background-color: var(--color2);
+}
 .div-all-results::-webkit-scrollbar {
   height: 5px;
   border-radius: 10px;

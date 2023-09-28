@@ -38,6 +38,7 @@ header {
     margin-right: .5rem;
     user-select: none;
     top: 50%;
+    height: 1rem;
     animation: initAppear 1s forwards ease;
     cursor: default;
     & .filter-by {
@@ -74,6 +75,7 @@ header {
       top: .7rem;
       box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 10px 24px rgba(0, 0, 0, 0.1);
       overflow: hidden;
+
       & .option {
         display: grid;
         align-content: center;
