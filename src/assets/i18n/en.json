@@ -14,5 +14,7 @@
   "start_searching": "Start searching a book.",
   "publisher": "Publisher:",
   "authors": "Authors:",
-  "filter_by": "Filter"
+  "filter_by": "Filter",
+  "published_date": "Published date:",
+  "pages": "Pages:"
 }

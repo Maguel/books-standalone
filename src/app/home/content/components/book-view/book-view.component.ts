@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Book } from 'src/app/interfaces/books-response.interface';
 import { BooksService } from 'src/app/services/books.service';
+import { TranslateService } from 'src/app/services/translate.service';
 
 @Component({
   selector: 'app-book-view',
@@ -12,9 +13,13 @@ import { BooksService } from 'src/app/services/books.service';
 })
 export class BookViewComponent {
   constructor(
-    private readonly booksService: BooksService
+    private readonly booksService: BooksService,
+    private readonly translateService: TranslateService
   ) {}
   get bookSelected(): Book {
     return this.booksService.bookSelected;
+  }
+  translate(s: string): string {
+    return this.translateService.translate(s);
   }
 }

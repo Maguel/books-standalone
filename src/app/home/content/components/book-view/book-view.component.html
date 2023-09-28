@@ -2,9 +2,9 @@
   <img src="{{bookSelected.volumeInfo.imageLinks?.thumbnail}}" alt="">
   <h2>{{bookSelected.volumeInfo.title}}</h2>
   <h3>{{bookSelected.volumeInfo.subtitle}}</h3>
-  <h4>{{bookSelected.volumeInfo.publishedDate}}</h4>
-  <h4>{{bookSelected.volumeInfo.authors}}</h4>
-  <h4>{{bookSelected.volumeInfo.publisher}}</h4>
-  <h4>{{bookSelected.volumeInfo.pageCount}}</h4>
+  <h4>{{translate('published_date')}}<br>{{bookSelected.volumeInfo.publishedDate}}</h4>
+  <h4>{{translate('authors')}}<br>{{bookSelected.volumeInfo.authors}}</h4>
+  <h4>{{translate('publisher')}}<br>{{bookSelected.volumeInfo.publisher}}</h4>
+  <h4>{{translate('pages')}}<br>{{bookSelected.volumeInfo.pageCount}}</h4>
   <p>{{bookSelected.volumeInfo.description}}</p>
 </div>

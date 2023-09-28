@@ -1,7 +1,53 @@
 .book-selected {
   position: absolute;
   display: grid;
+  grid-template-columns: 25vh 1fr;
+  grid-template-rows: repeat(6, auto) 1fr auto;
+  grid-template-areas: "a ." " a ." "a ." "a ." "a ." "a ." "p p" "c c";
   height: 100%;
   width: 100%;
   overflow-y: auto;
+  padding-top: 1rem;
+  & img {
+    grid-area: a;
+    justify-self: center;
+    align-self: center;
+    width: 80%;
+    object-fit: contain;
+    box-shadow: 0 0 25px #00000050;
+  }
+  & h2 {
+    font-size: 2.5vh;
+  }
+  & h3 {
+    font-size: 2vh;
+    height: fit-content;
+  }
+  & h4 {
+    font-size: 1.5vh;
+  }
+  & p {
+    grid-area: p;
+    padding: 1rem;
+  }
+}
+
+@media(max-width: 600px) {
+  .book-selected {
+    grid-template-columns:1fr;
+    grid-template-rows: 40vh repeat(5, auto) 1fr auto;
+    grid-template-areas: "a " "." "." "." "." "." "." "p" "c";
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding-top: 1rem;
+    & img {
+      height: 80%;
+      width: auto;
+    }
+    & h2, h3, h4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
 }

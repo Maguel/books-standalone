@@ -14,5 +14,7 @@
   "start_searching": "Comienza buscando un libro.",
   "publisher": "Editorial:",
   "authors": "Autores:",
-  "filter_by": "Filtrar"
+  "filter_by": "Filtrar",
+  "published_date": "Fecha de publicación:",
+  "pages":"Paginas:"
 }
