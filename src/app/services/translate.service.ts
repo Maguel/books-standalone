@@ -25,7 +25,7 @@ export class TranslateService {
     this.http.get<Translator>(`/assets/i18n/${this._lang}.json`)
     .subscribe((response) => {
       this._translator = response;
-      console.log(this._translator);
+      //console.log(this._translator);
     });
   }
   get language(): string {
@@ -37,7 +37,7 @@ export class TranslateService {
     this.http.get<Translator>(`/assets/i18n/${this._lang}.json`)
     .subscribe((response) => {
       this._translator = response;
-      console.log(this._translator);
+      //console.log(this._translator);
     });
     localStorage.setItem('langConfig', JSON.stringify(this._translateConfig));
   }

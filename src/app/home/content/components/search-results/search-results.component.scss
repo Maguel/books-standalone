@@ -65,6 +65,7 @@
   padding: 1rem;
   padding-bottom: 10rem;
   overflow-y: auto;
+  overflow-x: hidden;
   & .book {
     display: grid;
     grid-template-columns: 8rem 1fr;
@@ -165,13 +166,16 @@
 }
 .to-up {
   position: fixed;
+  display: flex;
   z-index: 3;
+  font-size: 2vh;
   bottom: 7vh;
   right: 3vw;
   height: 5.5vh;
   width: 5.5vh;
   transform: rotateZ(90deg);
-  padding-top: .4vh;
+  align-items: center;
+  justify-content: center;
   border-style: none;
   border-radius: 1rem;
   background-color: var(--color1);

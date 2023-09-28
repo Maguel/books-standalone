@@ -178,6 +178,7 @@ export class BooksService {
   }
   saveBookViewed(b: Book): void {
     this._bookSelected = b;
+    console.log(b);
     this._viewsHistory = this._viewsHistory.filter(book => book.id !== b.id);
     this._viewsHistory.unshift(b);
     if (this._viewsHistory.length > 15) {

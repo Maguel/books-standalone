@@ -120,6 +120,7 @@ export interface VolumeInfo {
   panelizationSummary?: PanelizationSummary;
   publisher?:           string;
   imageLinks?:          ImageLinks;
+  subtitle:             string;
 }
 
 export interface ImageLinks {
